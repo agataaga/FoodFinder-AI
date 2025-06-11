@@ -9,19 +9,29 @@ Screeny z aplikacji:
 ![image](https://github.com/user-attachments/assets/94a5bee3-c71a-45d6-be45-8bc2a31df335)
 
 Użyte technologie:
-- pydantic do zarządzania Agentami
-- Gemini z modelem 1.5-flash
-- Web Scraping (w celu znalezienia najlepszych restauracji)
-- Połączenie Agentów z GooglePlaces API
+- Pydantic – do zarządzania agentami i walidacji danych.
+- Gemini 1.5 Flash – jako model językowy wspierający przetwarzanie zapytań.
+- Web Scraping – w celu wyszukiwania najlepszych restauracji na blogach i stronach kulinarnych.
+- Google Places API – do integracji z bazą restauracji i lokalizacji.
 
-Pierwszy Agent odpowiedzialny za przetwarzanie requestu użytkownika w dobrą formę json, następnie przekazuje uzyskane wyniki do drugiego, który wyszukuje odpowiednie restauracje z jak największym dopasowaniem. 
-Restauracja polecana przez eksperta pozyskiwana jest poprzez model przeszukujący internet, a konkretnie pdane mu linki do blogów i stron kulinarnych.
+Architektura rozwiązania:
+
+System działa w oparciu o dwóch agentów:
+
+Agent przetwarzający – przekształca zapytanie użytkownika w strukturyzowany format JSON.
+
+Agent wyszukujący – na podstawie danych od pierwszego agenta znajduje restauracje o najwyższym dopasowaniu. Dodatkowo, korzystając z modelu przeszukującego internet, identyfikuje rekomendacje od ekspertów kulinarnych na podstawie blogów i recenzji.
 
 Business Case:
 
-Aplikacja początkowo przeznaczona była dla wszystkich - osoby, które nie wiedziały co zjeść w nowym mieście albo szukające czegoś lokalnie mogły dzięki niej znaleźć odpwiednie rekomendaacje.
-Dzięki wprowadzeniu nowych funkcjonalności, takich jak wyszukiwanie restauracji "hidden gems" oraz rekomendacje od ekspertów kulinarnych, aplikacja stała się bardziej przystosowana pod szerszą publikę. 
-Teraz zarówno głodni turyści mogą znalźć coś do jedzenia, jak i doświadczeni smakosze, którzy chcą odkrywać ukryte miejsca w swojej okolicy i jadać w miejscach sprawdzonych przez godnych zaufania recenzentów.
+Aplikacja powstała z myślą o osobach szukających idealnego miejsca na posiłek – zarówno turystach, jak i lokalnych mieszkańcach. Dzięki wprowadzeniu funkcji takich jak:
+- wyszukiwanie "hidden gems" (ukrytych perełek gastronomicznych),
+- rekomendacje od ekspertów kulinarnych,
+stała się atrakcyjna dla szerszego grona odbiorców.
+
+Dziś korzystają z niej:
+✔ Podróżni, którzy chcą szybko znaleźć dobrą restaurację w nowym mieście.
+✔ Smakosze, poszukujący wyjątkowych miejsc sprawdzonych przez krytyków lub ukrytych perełek w swojej okolicy.
 
 Możliwość monetyzacji: 
 
